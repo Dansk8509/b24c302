@@ -1,0 +1,22 @@
+{
+    "EmployeeId": "",
+    "CountryCode": "",
+    "ListCountry": [
+        {
+            "Code": "Null",
+            "Decription": "Seleccione un Valor"
+        },
+        {
+            "Code": "USA",
+            "Decription": "United States"
+        },
+        {
+            "Code": "UK",
+            "Decription": "United Kindom"
+        },
+        {
+            "Code": "ES",
+            "Decription": "Spain"
+        }
+    ]
+}

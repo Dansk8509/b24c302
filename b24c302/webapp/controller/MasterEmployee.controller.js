@@ -1,36 +1,22 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel",
+    
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/core/Fragment"
 
 ],
-function (Controller, JSONModel, Filter, FilterOperator, Fragment) {
+function (Controller, Filter, FilterOperator, Fragment) {
     "use strict";
 
-    return Controller.extend("b24c302.controller.App", {
+    return Controller.extend("b24c302.controller.MasterEmployee", {
 
         onInit: function () {
-            this._loadCountries();
-            this._loadEmployees();
+ 
+
         },
 
-        // Llama a Modelo (Countries) contenedor de info 
-        _loadCountries:function () {
-            let oModelCountries = new JSONModel();
-            oModelCountries.loadData("../model/Countries.json");
-            // console.log(oModelCountries);
-            this.getView().setModel(oModelCountries,"jsonCountries");
-        },
-
-         // Llama a Modelo (Employees) contenedor de info 
-         _loadEmployees:function () {
-            let oModelEmployees = new JSONModel();
-            oModelEmployees.loadData("../model/Employees.json");
-            // console.log(oModelEmployees);
-            this.getView().setModel(oModelEmployees,"jsonEmployees");
-        },
+        
         
         onValidate: function () {
           let oInput = this.getView().byId("inputEmployee"),
@@ -114,6 +100,16 @@ function (Controller, JSONModel, Filter, FilterOperator, Fragment) {
 
             // });
             // this._pDialog.open();
+        },
+
+        onCloseDialog: function () {
+            this._pDialog.then(function (oDialog) {
+                oDialog.close();
+            });
+        },
+
+        onNavToDetails: function () {
+
         }
 
     });

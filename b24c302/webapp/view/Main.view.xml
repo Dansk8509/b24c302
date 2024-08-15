@@ -1,0 +1,57 @@
+<mvc:View 
+	controllerName="b24c302.controller.Main"
+	xmlns="sap.m" 
+    xmlns:f="sap.f"
+    xmlns:core="sap.iu.core"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <Shell id="shell">
+        
+        <App id="app">
+       
+            <pages>
+                <Page showHeader="false">
+
+                    <content>
+                        <f:FlexibleColumnLayout id="fcl" 
+                                                backgroundDesign="Solid"
+                                                layout="{jsonLayout>/ActiveCode}" >
+                                                
+                            <f:beginColumnPages>
+                                <mvc:XMLView id="master" viewName="b24c302.view.MasterEmployee"/>
+                            </f:beginColumnPages>
+
+                            <f:midColumnPages>
+                                <mvc:XMLView id="details" viewName="b24c302.view.EmployeeDetails"/>
+                            </f:midColumnPages>
+
+                            <f:endColumnPages>
+                                <Page>
+                                </Page>
+                            </f:endColumnPages>
+
+                        </f:FlexibleColumnLayout>
+                    </content>
+
+                     <footer>
+                        <Toolbar>
+                        
+                           <Label text="{i18n>layout}" 
+                                            class="sapUiSmallMargin"/>
+                                <Select items="{jsonLayout>/Layout}"
+                                        selectedKey="{jsonLayout>/ActiveKey}">
+                                    <core:Item key="{jsonLayout>Key}"
+                                                text="{jsonLayout>Text}"/>
+                                </Select>
+
+                        </Toolbar>
+                    </footer>
+
+                </Page>
+            </pages>
+       
+        </App>
+    
+    </Shell>
+
+</mvc:View>

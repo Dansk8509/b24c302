@@ -1,0 +1,66 @@
+<mvc:View 
+    controllerName="b24c302.controller.MasterEmployee"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core" 
+    xmlns:mvc="sap.ui.core.mvc" >
+
+
+
+    <Page id="page"
+        title="{i18n>title}">
+        
+        <content>
+            <HBox>
+                <Label text="{i18n>labelEmployee}"
+                        class="sapUiSmallMargin"/>
+
+                <Input id="inputEmployee"
+                        width="200px"
+                        class="sapUiSmallMarginEnd" 
+                        maxLength="6"
+                        liveChange="onValidate"
+                        value="{jsonCountries>/EmployeeId}"/>
+
+                <Label id="countries"
+                        text="{i18n>labelCountry}"
+                        class="sapUiSmallMargin"/>
+
+                <Select id="lCountries"
+                        items="{jsonCountries>/ListCountry}"
+                        forceSelection="false"
+                        selectedKey="{jsonCountries>/CountryCode}">
+
+                    <core:Item key="{jsonCountries>Code}" text="{jsonCountries>Decription}"/>
+                </Select>
+
+                <Button id="btnFilter"
+                        text="{i18n>btnFilter}"
+                        icon="sap-icon://filter"
+                        press="onFilter"
+                        class="sapUiSmallMarginEnd" />
+                <Button id="btnClearFilter"
+                        text="{i18n>clearFilter}"
+                        icon="sap-icon://clear-filter"
+                        press="onClearFilter"
+                        class="sapUiSmallMarginEnd" />
+                <ToolbarSpacer/>
+
+                <Label text="{i18n>Layout}" />
+                <Select items="{jsonLayout>/Layout}" >
+                    <core:Item key="{jsonLayout>Code}"
+                                text="{jsonLayout>Layout}"/>
+                </Select>
+            </HBox>
+
+            <HBox>
+                <core:Fragment fragmentName="b24c302.fragment.TableEmployee"
+                                type="XML"/>
+            </HBox>
+    
+        </content>
+
+    </Page>
+
+            
+
+</mvc:View>
